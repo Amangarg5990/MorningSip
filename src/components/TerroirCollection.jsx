@@ -79,7 +79,7 @@ export default function TerroirCollection({ onAddToCart, searchQuery = '' }) {
           {filteredTeas.map((tea) => (
             <article
               key={tea.id}
-              className="tea-card flex flex-col bg-surface-container-low rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group animate-fadeIn border border-outline-variant/20"
+              className="tea-card flex flex-col bg-surface-container-low rounded-lg overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group animate-fadeIn border border-outline-variant/30 hover:border-secondary/50"
               data-region={tea.region}
             >
               <div className="relative h-60 w-full overflow-hidden bg-primary-container">
@@ -99,8 +99,8 @@ export default function TerroirCollection({ onAddToCart, searchQuery = '' }) {
               <div className="p-space-lg flex-1 flex flex-col justify-between">
                 <div>
                   <div className="flex items-center justify-between text-on-surface-variant font-label-caps text-label-caps mb-1 text-[11px]">
-                    <span>{tea.elevation}</span>
-                    <span className="text-secondary font-semibold">{tea.harvest}</span>
+                    <span className="text-secondary font-semibold">{tea.elevation}</span>
+                    <span className="text-on-surface-variant/80">{tea.coordinates}</span>
                   </div>
 
                   <h3 className="font-headline-sm text-headline-sm text-primary group-hover:text-secondary transition-colors">
