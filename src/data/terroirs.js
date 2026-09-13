@@ -1,0 +1,62 @@
+export const TERROIR_TEAS = [
+  {
+    id: 'assam-estate-reserve',
+    region: 'assam',
+    regionLabel: 'Assam Valley • Moran',
+    gradeBadge: 'FTGFOP1 Clonal',
+    elevation: 'Elev: 120 M',
+    harvest: '2nd Flush Harvest',
+    title: 'Assam Estate Reserve',
+    description: 'Rich, malty, with prominent golden tips. Delivers a deep amber liquor and bold body ideal for pure drinking or splash of milk.',
+    tastingNotes: ['Malted Cocoa', 'Dried Figs', 'Golden Honey'],
+    caddySize: '100g Tin Caddy',
+    price: 1250,
+    priceFormatted: '₹1,250',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBo2GR6HFX-tkDyOLVj9pwpYFsCoBEmAWwII6aBpa6TlTCIbqCu3OfW8yjRGoW8qKxB6rFailT-yBCNxhE2vUJ2j0CDeA5tG0LO9WG9JKLqxrpLBm14HCRhbNUfOtWOiqGgpvG2mREfYIeXh-hYtOWkVns50NBVXVVqrKKxRVvM8JaK_cJuUi0x9876-JV4bi5Gqf1-5UkpcMRdF_rbXdiymk__OHR7eGt_IWHBbVoyemiRhNLr_L1r4A'
+  },
+  {
+    id: 'darjeeling-champagne',
+    region: 'darjeeling',
+    regionLabel: 'Darjeeling • Mirik',
+    gradeBadge: 'SFTGFOP1 Spring',
+    elevation: 'Elev: 1,850 M',
+    harvest: '1st Flush Special',
+    title: 'Champagne of Teas',
+    description: 'The revered spring harvest. Delicate Muscatel grape sweetness, wet mountain orchid aromas, and shimmering pale amber clarity.',
+    tastingNotes: ['Muscatel Grape', 'Spring Meadow', 'Peach Blossom'],
+    caddySize: '80g Tin Caddy',
+    price: 1680,
+    priceFormatted: '₹1,680',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAx8Fc5UXbQWH81-aVZitOKiw7YLJh2AbsauZqZezy0GtNTF8ujPyicNxRf4hXMyNjaEIM_YiIEdZT32gO8BaD54Usi17kmtFYeEpKFJwTApWZa99U6Q29LHlzTZY6ynHEj2f2mn96furfxGFn6y3S0TRxY8SZYulSA6uau30PCCw45_KIXMNwRcCJL2rh5G0X__4MhqZiG0Z06_u0gET7BqD9DDrJAgKfKF9dVnMEmlIZLAAuYwQavlw'
+  },
+  {
+    id: 'nilgiri-frost-orchid',
+    region: 'nilgiri',
+    regionLabel: 'Nilgiri • Coonoor',
+    gradeBadge: 'Winter Frost Reserve',
+    elevation: 'Elev: 2,100 M',
+    harvest: 'January Frost Flush',
+    title: 'Nilgiri Frost Orchid',
+    description: 'Plucked during sub-zero mountain breezes. Incomparable clarity, natural sweet citrus and eucalyptus notes with brisk golden liquor.',
+    tastingNotes: ['Winter Bergamot', 'Pine Resin', 'Wild Honey'],
+    caddySize: '100g Tin Caddy',
+    price: 1150,
+    priceFormatted: '₹1,150',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAGDp0JUzkFdatlhU3noaG4Y87ghJpbbM9aHprJjlEi597AtGuh6NpileNfoIEoBTUGCWwdAuMo9dpKrHROmiFZWMsN2hj7zqar5psYWeaV835ft5n4dCKwmyiQGo5xLQ6jvsq5Or0jISiDgWjjzVvfQqG63v-yl4pMQYHj5U20gUD1lhQN3UjWfdd0wIYrIyLAh_BPQFAbi2lhGJPU67BWmf0BCTrVEsfnsYDoWCXMx_fYZKwGxHUtDQ'
+  },
+  {
+    id: 'meghalaya-cloud-oolong',
+    region: 'meghalaya',
+    regionLabel: 'Meghalaya • Ri-Bhoi',
+    gradeBadge: 'Wild Forest Batch',
+    elevation: 'Elev: 1,600 M',
+    harvest: 'Autumn Boutique Pick',
+    title: 'Meghalaya Cloud Oolong',
+    description: 'Smallholder boutique harvest from the adobe of clouds. Lightly charcoal toasted with a lingering creamy vanilla and roasted chestnut tail.',
+    tastingNotes: ['Smoky Orchid', 'Sweet Chestnut', 'Clover Honeydew'],
+    caddySize: '75g Tin Caddy',
+    price: 1420,
+    priceFormatted: '₹1,420',
+    image: 'https://lh3.googleusercontent.com/aida-public/AB6AXuDqR02O4hbOV5qEiwzxtByK5A7B_HFT8tSQ4UYfKmjFeLXse8Jl1uIUsRg7XPDknwa64pKVqY-AVINSbABVM_6fkyePysGdun9sicGnCBLlp7iGJuZikaa8sc8HAedQfN5cN6CMotbwtJ6Hzar9zoO4GkjV-AOZT0OMWQlMV0acPnW2bNTL96DShkd4cHUMUdvlB1pQwKOcRj5sJuWrI2-u8qOorn4R1H5b15HbmcK9g3sLS-qsQrxiQg'
+  }
+];

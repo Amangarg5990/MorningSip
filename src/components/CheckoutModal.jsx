@@ -1,161 +1,163 @@
 import React, { useState } from 'react';
-import { X, CheckCircle, CreditCard, Lock, Truck, Sparkles } from 'lucide-react';
-import confetti from 'canvas-confetti';
 
-export default function CheckoutModal({ isOpen, onClose, cartItems, onClearCart }) {
-  const [isCompleted, setIsCompleted] = useState(false);
+export default function CheckoutModal({ isOpen, onClose, cartItems = [], onClearCart }) {
+  const [step, setStep] = useState('shipping'); // 'shipping' | 'success'
   const [formData, setFormData] = useState({
-    name: 'Eleanor Vance',
-    email: 'eleanor@example.com',
-    address: '742 Evergreen Terrace, Suite 4B',
-    city: 'San Francisco',
-    zip: '94107',
-    cardNumber: '•••• •••• •••• 4242'
+    name: '',
+    email: '',
+    phone: '',
+    address: '',
+    city: '',
+    state: '',
+    pincode: '',
+    deliveryNotes: ''
   });
 
   if (!isOpen) return null;
 
-  const totalAmount = cartItems.reduce((acc, i) => acc + i.price * i.quantity, 0);
+  const subtotal = cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0);
+  const shippingCost = subtotal >= 2000 ? 0 : 150;
+  const total = subtotal + shippingCost;
 
-  const handleSubmit = (e) => {
+  const handleSubmitOrder = (e) => {
     e.preventDefault();
-    setIsCompleted(true);
-    onClearCart();
-
-    // Trigger confetti celebratory effect
-    try {
-      confetti({
-        particleCount: 120,
-        spread: 80,
-        origin: { y: 0.6 }
-      });
-    } catch (err) {
-      console.log('Confetti effect failed', err);
-    }
-  };
-
-  const handleClose = () => {
-    setIsCompleted(false);
-    onClose();
+    setStep('success');
+    if (onClearCart) onClearCart();
   };
 
   return (
-    <div className="modal-overlay" onClick={handleClose}>
-      <div className="modal-content" onClick={(e) => e.stopPropagation()} style={{ maxWidth: '650px' }}>
-        <button className="close-modal-btn" onClick={handleClose}>
-          <X size={20} />
+    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4">
+      <div className="fixed inset-0 bg-primary/50 backdrop-blur-sm" onClick={onClose} />
+
+      <div className="relative bg-surface rounded-2xl max-w-xl w-full p-6 md:p-8 shadow-2xl border border-outline-variant/30 z-10 animate-fadeIn">
+        <button
+          onClick={onClose}
+          className="absolute top-4 right-4 p-1.5 rounded-lg text-on-surface-variant hover:text-primary hover:bg-surface-container transition-colors"
+        >
+          <span className="material-symbols-outlined text-[20px]">close</span>
         </button>
 
-        {!isCompleted ? (
+        {step === 'shipping' ? (
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-              <Lock size={18} color="var(--color-emerald)" />
-              <span style={{ fontSize: '0.85rem', color: 'var(--color-emerald)', fontWeight: '700', textTransform: 'uppercase' }}>
-                256-Bit Encrypted Secure Checkout
+            <div className="flex items-center gap-2 mb-2">
+              <span className="text-secondary text-base">✦</span>
+              <span className="font-label-caps text-secondary text-xs uppercase tracking-widest">
+                Artisanal Delivery
               </span>
             </div>
+            <h3 className="font-headline-sm text-headline-sm text-primary mb-1">
+              Estate Dispatch Checkout
+            </h3>
+            <p className="font-body-sm text-xs text-on-surface-variant mb-6">
+              Order value: <strong className="text-primary font-bold">₹{total.toLocaleString()}</strong> ({cartItems.length} unique harvests)
+            </p>
 
-            <h2 className="font-serif" style={{ fontSize: '2.2rem', marginBottom: '1.5rem' }}>
-              Complete Your Artisanal Order
-            </h2>
-
-            <form onSubmit={handleSubmit}>
-              {/* Customer Details */}
-              <div style={{ marginBottom: '1.5rem' }}>
-                <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '0.4rem', color: 'var(--text-muted)' }}>
-                  Full Shipping Name
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  style={{ width: '100%', background: 'var(--bg-dark)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.75rem', color: 'white', outline: 'none' }}
-                />
-              </div>
-
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+            <form onSubmit={handleSubmitOrder} className="space-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '0.4rem', color: 'var(--text-muted)' }}>
-                    Email Address
-                  </label>
+                  <label className="block text-xs font-semibold text-primary mb-1">Recipient Name *</label>
                   <input
-                    type="email"
                     required
+                    type="text"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="e.g. Vikramaditya Sen"
+                    className="w-full px-3 py-2 text-xs rounded-lg bg-surface-container-low border border-outline-variant/30 focus:ring-1 focus:ring-secondary/50 outline-none"
+                  />
+                </div>
+                <div>
+                  <label className="block text-xs font-semibold text-primary mb-1">Email Address *</label>
+                  <input
+                    required
+                    type="email"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    style={{ width: '100%', background: 'var(--bg-dark)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.75rem', color: 'white', outline: 'none' }}
+                    placeholder="connoisseur@tea.com"
+                    className="w-full px-3 py-2 text-xs rounded-lg bg-surface-container-low border border-outline-variant/30 focus:ring-1 focus:ring-secondary/50 outline-none"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label className="block text-xs font-semibold text-primary mb-1">Phone Number *</label>
+                  <input
+                    required
+                    type="tel"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    placeholder="+91 98765 43210"
+                    className="w-full px-3 py-2 text-xs rounded-lg bg-surface-container-low border border-outline-variant/30 focus:ring-1 focus:ring-secondary/50 outline-none"
                   />
                 </div>
                 <div>
-                  <label style={{ display: 'block', fontSize: '0.85rem', fontWeight: '700', marginBottom: '0.4rem', color: 'var(--text-muted)' }}>
-                    Delivery Address
-                  </label>
+                  <label className="block text-xs font-semibold text-primary mb-1">PIN Code *</label>
                   <input
-                    type="text"
                     required
-                    value={formData.address}
-                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    style={{ width: '100%', background: 'var(--bg-dark)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-sm)', padding: '0.75rem', color: 'white', outline: 'none' }}
+                    type="text"
+                    value={formData.pincode}
+                    onChange={(e) => setFormData({ ...formData, pincode: e.target.value })}
+                    placeholder="110021"
+                    className="w-full px-3 py-2 text-xs rounded-lg bg-surface-container-low border border-outline-variant/30 focus:ring-1 focus:ring-secondary/50 outline-none"
                   />
                 </div>
               </div>
 
-              {/* Payment Card Simulation */}
-              <div style={{ background: 'var(--bg-dark)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '1.25rem', marginBottom: '1.5rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.8rem' }}>
-                  <span style={{ fontSize: '0.9rem', fontWeight: '700', color: 'var(--color-gold)' }}>Payment Card Details</span>
-                  <CreditCard size={20} color="var(--color-gold)" />
-                </div>
-                <input
-                  type="text"
-                  value={formData.cardNumber}
-                  onChange={(e) => setFormData({ ...formData, cardNumber: e.target.value })}
-                  style={{ width: '100%', background: '#0a0f0d', border: '1px solid rgba(255,255,255,0.1)', borderRadius: 'var(--radius-sm)', padding: '0.75rem', color: 'white', outline: 'none', fontFamily: 'monospace' }}
+              <div>
+                <label className="block text-xs font-semibold text-primary mb-1">Shipping Address *</label>
+                <textarea
+                  required
+                  rows={2}
+                  value={formData.address}
+                  onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                  placeholder="Residence / Estate Address, Landmark..."
+                  className="w-full px-3 py-2 text-xs rounded-lg bg-surface-container-low border border-outline-variant/30 focus:ring-1 focus:ring-secondary/50 outline-none"
                 />
               </div>
 
-              {/* Order total */}
-              <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', borderTop: '1px solid var(--border-color)', paddingTop: '1rem', marginBottom: '1.5rem' }}>
-                <span style={{ fontSize: '1.1rem', fontWeight: '700' }}>Order Total ({cartItems.length} items)</span>
-                <span style={{ fontSize: '1.6rem', fontWeight: '800', color: 'var(--color-gold)' }}>${totalAmount.toFixed(2)}</span>
+              <div className="p-3 bg-surface-container rounded-xl text-xs space-y-1">
+                <div className="flex justify-between text-on-surface-variant">
+                  <span>Subtotal</span>
+                  <span>₹{subtotal.toLocaleString()}</span>
+                </div>
+                <div className="flex justify-between text-on-surface-variant">
+                  <span>Express Nitrogen Packaging & Delivery</span>
+                  <span>{shippingCost === 0 ? 'COMPLIMENTARY' : `₹${shippingCost}`}</span>
+                </div>
+                <div className="flex justify-between text-primary font-bold pt-1 border-t border-outline-variant/20">
+                  <span>Total Payable</span>
+                  <span className="text-secondary font-bold text-sm">₹{total.toLocaleString()}</span>
+                </div>
               </div>
 
-              <button type="submit" className="btn-primary" style={{ width: '100%', justifyContent: 'center', padding: '1rem' }}>
-                <Sparkles size={18} /> Confirm & Pay ${totalAmount.toFixed(2)}
+              <button
+                type="submit"
+                className="w-full py-3 bg-primary hover:bg-primary-container text-on-primary rounded-lg font-title-md text-sm transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer active:scale-98"
+              >
+                <span>Confirm Harvest Dispatch</span>
+                <span className="material-symbols-outlined text-[18px]">verified</span>
               </button>
             </form>
           </div>
         ) : (
-          /* Order Confirmation */
-          <div style={{ textAlign: 'center', padding: '2rem 1rem' }}>
-            <div style={{ width: '72px', height: '72px', background: 'rgba(16,185,129,0.15)', color: 'var(--color-emerald)', borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 1.5rem' }}>
-              <CheckCircle size={42} />
+          <div className="text-center py-6">
+            <div className="w-16 h-16 rounded-full bg-secondary/20 text-secondary-fixed flex items-center justify-center mx-auto mb-4">
+              <span className="material-symbols-outlined text-[36px]">verified</span>
             </div>
-
-            <div style={{ fontSize: '0.85rem', color: 'var(--color-gold)', fontWeight: '700', textTransform: 'uppercase', letterSpacing: '0.1em' }}>
-              Order Confirmed • #MSIP-{Math.floor(100000 + Math.random() * 900000)}
-            </div>
-
-            <h2 className="font-serif" style={{ fontSize: '2.5rem', margin: '0.5rem 0 1rem' }}>
-              Thank You For Your Order!
-            </h2>
-
-            <p style={{ color: 'var(--text-muted)', maxWidth: '480px', margin: '0 auto 1.5rem' }}>
-              Your artisanal tea selection has been dispatched to our Kyoto & Darjeeling master blenders. A shipping confirmation email with tracking details has been sent to <strong>{formData.email}</strong>.
+            <h3 className="font-headline-sm text-headline-sm text-primary mb-2">
+              Estate Dispatch Reserved!
+            </h3>
+            <p className="font-body-sm text-sm text-on-surface-variant max-w-sm mx-auto leading-relaxed mb-6">
+              Thank you, {formData.name || 'Connoisseur'}. Your order of single-origin Indian whole leaf teas is being sealed in our climate-controlled nitrogen caddies.
             </p>
-
-            <div style={{ background: 'var(--bg-dark)', border: '1px solid var(--border-color)', borderRadius: 'var(--radius-md)', padding: '1.25rem', maxWidth: '400px', margin: '0 auto 2rem', textAlign: 'left', fontSize: '0.9rem' }}>
-              <div style={{ color: 'var(--color-emerald)', fontWeight: '700', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                <Truck size={16} /> Estimated Delivery: 2-3 Business Days
-              </div>
-              <div style={{ color: 'var(--text-muted)' }}>
-                <strong>Deliver To:</strong> {formData.name}, {formData.address}
-              </div>
-            </div>
-
-            <button className="btn-primary" onClick={handleClose}>
-              Continue Exploring Collection
+            <button
+              onClick={() => {
+                setStep('shipping');
+                onClose();
+              }}
+              className="px-6 py-2.5 bg-primary text-on-primary rounded-lg font-title-md text-xs hover:bg-primary-container transition-colors"
+            >
+              Return to Terroir Collection
             </button>
           </div>
         )}
