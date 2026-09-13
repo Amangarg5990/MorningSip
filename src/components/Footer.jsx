@@ -38,10 +38,8 @@ export default function Footer({ onNavigate }) {
             </h5>
             <ul style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.6rem', fontSize: '0.9rem' }}>
               <li><button onClick={() => onNavigate('shop')} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}>Collection Catalog</button></li>
-              <li><button onClick={() => onNavigate('quiz')} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}>Tea Matcher Quiz</button></li>
-              <li><button onClick={() => onNavigate('blender')} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}>Custom Tea Blender</button></li>
-              <li><button onClick={() => onNavigate('timer')} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}>Digital Steep Timer</button></li>
               <li><button onClick={() => onNavigate('benefits')} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}>Tea Benefits & Science</button></li>
+              <li><button onClick={() => onNavigate('story')} style={{ background: 'transparent', border: 'none', color: 'var(--text-muted)', cursor: 'pointer' }}>Our Origin & Heritage</button></li>
             </ul>
           </div>
 

@@ -4,9 +4,6 @@ import IntroQuote from './components/IntroQuote';
 import Hero from './components/Hero';
 import ProductCard from './components/ProductCard';
 import ProductModal from './components/ProductModal';
-import TeaQuiz from './components/TeaQuiz';
-import CustomBlender from './components/CustomBlender';
-import SteepTimer from './components/SteepTimer';
 import TeaBenefits from './components/TeaBenefits';
 import CartDrawer from './components/CartDrawer';
 import CheckoutModal from './components/CheckoutModal';
@@ -16,15 +13,12 @@ import Footer from './components/Footer';
 import Toast from './components/Toast';
 
 import { PRODUCTS, CATEGORIES } from './data/products';
-import { SlidersHorizontal, Sparkles, Filter, X, Heart } from 'lucide-react';
+import { Filter, X, Heart } from 'lucide-react';
 
 export default function App() {
   const getInitialTab = () => {
     const hash = window.location.hash.toLowerCase();
     if (hash === '#benefits' || hash === '#tea-benefits') return 'benefits';
-    if (hash === '#quiz') return 'quiz';
-    if (hash === '#blender') return 'blender';
-    if (hash === '#timer') return 'timer';
     if (hash === '#story') return 'story';
     return 'shop';
   };
@@ -166,8 +160,7 @@ export default function App() {
                 const el = document.getElementById('collection');
                 if (el) el.scrollIntoView({ behavior: 'smooth' });
               }}
-              onQuiz={() => setActiveTab('quiz')}
-              onBlender={() => setActiveTab('blender')}
+              onBenefits={() => handleTabChange('benefits')}
             />
           </div>
         )}
@@ -257,22 +250,6 @@ export default function App() {
             </div>
           </section>
         )}
-
-        {/* Tea Quiz Tab */}
-        {activeTab === 'quiz' && (
-          <TeaQuiz
-            onAddToCart={handleAddToCart}
-            onSelectProduct={setSelectedProduct}
-          />
-        )}
-
-        {/* Custom Blender Tab */}
-        {activeTab === 'blender' && (
-          <CustomBlender onAddCustomToCart={handleAddToCart} />
-        )}
-
-        {/* Steep Timer Tab */}
-        {activeTab === 'timer' && <SteepTimer />}
 
         {/* Tea Benefits Tab */}
         {activeTab === 'benefits' && (

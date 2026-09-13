@@ -1,7 +1,7 @@
 import React from 'react';
-import { ArrowRight, Sparkles, Compass, ShieldCheck, Layers, Terminal } from 'lucide-react';
+import { ArrowRight, Sparkles, Compass } from 'lucide-react';
 
-export default function Hero({ onExplore, onQuiz, onBlender }) {
+export default function Hero({ onExplore, onBenefits }) {
   return (
     <section className="hero">
       <div className="container hero-grid">
@@ -27,9 +27,9 @@ export default function Hero({ onExplore, onQuiz, onBlender }) {
               <span>Explore 2026 Collection</span>
               <ArrowRight size={17} />
             </button>
-            <button className="btn-secondary" onClick={onQuiz}>
+            <button className="btn-secondary" onClick={onBenefits}>
               <Sparkles size={16} />
-              <span>Sommelier Tea Quiz</span>
+              <span>Tea Benefits & Science</span>
             </button>
           </div>
 

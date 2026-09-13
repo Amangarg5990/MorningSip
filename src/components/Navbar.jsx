@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Leaf, Search, ShoppingBag, Heart, Sparkles, Clock, Sliders, X } from 'lucide-react';
+import { Leaf, Search, ShoppingBag, Heart, X } from 'lucide-react';
 
 export default function Navbar({
   cartCount,
@@ -36,27 +36,6 @@ export default function Navbar({
             onClick={() => setActiveTab('shop')}
           >
             Collection
-          </button>
-          <button
-            className={`nav-link ${activeTab === 'quiz' ? 'active' : ''}`}
-            onClick={() => setActiveTab('quiz')}
-          >
-            <Sparkles size={14} style={{ display: 'inline', marginRight: '4px' }} />
-            Tea Matcher Quiz
-          </button>
-          <button
-            className={`nav-link ${activeTab === 'blender' ? 'active' : ''}`}
-            onClick={() => setActiveTab('blender')}
-          >
-            <Sliders size={14} style={{ display: 'inline', marginRight: '4px' }} />
-            Custom Tea Lab
-          </button>
-          <button
-            className={`nav-link ${activeTab === 'timer' ? 'active' : ''}`}
-            onClick={() => setActiveTab('timer')}
-          >
-            <Clock size={14} style={{ display: 'inline', marginRight: '4px' }} />
-            Steep Timer
           </button>
           <button
             className={`nav-link ${activeTab === 'benefits' ? 'active' : ''}`}
