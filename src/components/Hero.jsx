@@ -1,4 +1,5 @@
 import React from 'react';
+import CurvedDivider from './CurvedDivider';
 
 export default function Hero({ onExplore, onWellness }) {
   const scrollTo = (id) => {
@@ -9,7 +10,7 @@ export default function Hero({ onExplore, onWellness }) {
   };
 
   return (
-    <section id="home" className="relative w-full overflow-hidden -mt-28 pt-44 pb-24 md:pb-32 bg-primary text-on-primary">
+    <section id="home" className="relative w-full overflow-hidden -mt-28 pt-44 pb-36 sm:pb-44 md:pb-52 lg:pb-60 bg-primary text-on-primary">
       {/* Atmospheric Visual Layer */}
       <div className="absolute inset-0 z-0 opacity-40 mix-blend-luminosity">
         <div
@@ -114,6 +115,8 @@ export default function Hero({ onExplore, onWellness }) {
           </div>
         </div>
       </div>
+
+      <CurvedDivider position="bottom" fill="#fcf9f4" />
     </section>
   );
 }

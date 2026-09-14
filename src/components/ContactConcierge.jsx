@@ -37,8 +37,8 @@ export default function ContactConcierge({ onToast }) {
   };
 
   return (
-    <section className="py-space-xl md:py-28 bg-surface-container-low w-full relative" id="contact">
-      <div className="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+    <section className="py-space-xl md:py-28 bg-surface w-full relative" id="contact">
+      <div className="max-w-7xl mx-auto px-gutter grid grid-cols-1 lg:grid-cols-12 gap-gutter relative z-10">
         {/* Left Info Box */}
         <div className="lg:col-span-5 flex flex-col gap-space-md">
           <div>

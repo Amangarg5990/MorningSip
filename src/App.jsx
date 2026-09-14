@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import EstateLoader from './components/EstateLoader';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TerroirCollection from './components/TerroirCollection';
@@ -13,6 +14,7 @@ import CheckoutModal from './components/CheckoutModal';
 import Toast from './components/Toast';
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [activeSection, setActiveSection] = useState('home');
   const [searchQuery, setSearchQuery] = useState('');
   const [cart, setCart] = useState([]);
@@ -98,6 +100,9 @@ export default function App() {
 
   return (
     <div className="bg-surface font-body-md text-on-surface antialiased min-h-screen flex flex-col">
+      {/* Opening Estate Loader */}
+      {isLoading && <EstateLoader onComplete={() => setIsLoading(false)} />}
+
       {/* Fixed Luxury Navigation */}
       <Navbar
         cartCount={cartCount}
