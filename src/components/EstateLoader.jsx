@@ -67,31 +67,6 @@ export default function EstateLoader({ onComplete }) {
       {/* Ambient Moving Sunlight Halo */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[650px] h-[650px] bg-gradient-to-tr from-secondary/15 via-secondary/5 to-transparent rounded-full blur-3xl pointer-events-none animate-pulse"></div>
 
-      {/* Luxury Estate Botanical Guilloche Border */}
-      <div className="absolute inset-4 sm:inset-8 md:inset-10 border border-[#D49B35]/25 rounded-3xl pointer-events-none transition-all duration-1000">
-        <div className="absolute inset-1.5 border border-[#012d1d]/10 rounded-[22px]"></div>
-
-        {/* Vintage Apothecary Corner Accents */}
-        <div className="absolute top-3 left-3 text-secondary text-xs">✦</div>
-        <div className="absolute top-3 right-3 text-secondary text-xs">✦</div>
-        <div className="absolute bottom-3 left-3 text-secondary text-xs">✦</div>
-        <div className="absolute bottom-3 right-3 text-secondary text-xs">✦</div>
-
-        {/* Corner filigree brackets */}
-        <div className="absolute top-0 left-0 w-6 h-6 border-t-2 border-l-2 border-[#D49B35]/40 rounded-tl-xl"></div>
-        <div className="absolute top-0 right-0 w-6 h-6 border-t-2 border-r-2 border-[#D49B35]/40 rounded-tr-xl"></div>
-        <div className="absolute bottom-0 left-0 w-6 h-6 border-b-2 border-l-2 border-[#D49B35]/40 rounded-bl-xl"></div>
-        <div className="absolute bottom-0 right-0 w-6 h-6 border-b-2 border-r-2 border-[#D49B35]/40 rounded-br-xl"></div>
-      </div>
-
-      {/* Floating Tea Leaf / Golden Particle Wisps */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute top-[18%] left-[15%] w-2.5 h-2.5 rounded-full bg-secondary/30 blur-[1px] animate-float-leaf"></div>
-        <div className="absolute top-[70%] left-[20%] w-3 h-1.5 rounded-full bg-primary/20 rotate-45 animate-float-leaf-reverse"></div>
-        <div className="absolute top-[25%] right-[18%] w-2 h-2 rounded-full bg-secondary/40 blur-[0.5px] animate-float-leaf-reverse"></div>
-        <div className="absolute top-[65%] right-[22%] w-3.5 h-2 rounded-full bg-[#1b4332]/25 -rotate-12 animate-float-leaf"></div>
-      </div>
-
       {/* Main Center Container */}
       <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 max-w-2xl mx-auto w-full">
         
@@ -134,7 +109,7 @@ export default function EstateLoader({ onComplete }) {
           <div className="absolute top-10 left-1/2 -translate-x-1/2 w-64 h-64 bg-gradient-to-b from-[#fcbf55]/30 via-[#D49B35]/15 to-transparent rounded-full blur-2xl pointer-events-none -z-10"></div>
 
           {/* Clean Transparent Logo Emblem (No black borders, no card edges) */}
-          <div className="relative max-w-[290px] sm:max-w-[360px] md:max-w-[410px] mx-auto filter drop-shadow-[0_14px_28px_rgba(1,45,29,0.12)]">
+          <div className="relative max-w-[220px] xs:max-w-[280px] sm:max-w-[360px] md:max-w-[410px] mx-auto filter drop-shadow-[0_14px_28px_rgba(1,45,29,0.12)]">
             <img
               src="/images/morning-sip-clean.png"
               alt="Morning Sip - Single Estate Indian Teas Since 2026"
@@ -153,13 +128,13 @@ export default function EstateLoader({ onComplete }) {
         >
           {/* Gilded Ribbon Filigree */}
           <div className="flex items-center justify-center gap-3 mb-2">
-            <div className="w-12 sm:w-20 h-[1.5px] bg-gradient-to-r from-transparent via-[#D49B35] to-transparent"></div>
-            <span className="text-secondary text-xs sm:text-sm font-serif italic">ESTATE TERROIR</span>
-            <div className="w-12 sm:w-20 h-[1.5px] bg-gradient-to-r from-transparent via-[#D49B35] to-transparent"></div>
+            <div className="w-10 sm:w-20 h-[1.5px] bg-gradient-to-r from-transparent via-[#D49B35] to-transparent"></div>
+            <span className="text-secondary text-[11px] sm:text-sm font-serif italic">ESTATE TERROIR</span>
+            <div className="w-10 sm:w-20 h-[1.5px] bg-gradient-to-r from-transparent via-[#D49B35] to-transparent"></div>
           </div>
 
           {/* High-Fashion Editorial Tagline in Cape Font */}
-          <h2 className="font-cape text-3xl sm:text-4xl md:text-5xl text-primary font-bold tracking-tight leading-tight drop-shadow-sm">
+          <h2 className="font-cape text-2xl xs:text-3xl sm:text-4xl md:text-5xl text-primary font-bold tracking-tight leading-tight drop-shadow-sm">
             “Every cup has a story”
           </h2>
 

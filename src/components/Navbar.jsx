@@ -35,20 +35,24 @@ export default function Navbar({
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(27,67,50,0.06)]">
       {/* Top Banner */}
-      <div className="bg-primary text-on-primary py-1 px-gutter text-center text-label-caps font-label-caps tracking-widest text-[11px]">
-        Direct from Indian Tea Estates to Your Cup • Free Shipping on Curated Samplers
+      <div className="bg-primary text-on-primary py-1 px-3 sm:px-gutter text-center text-label-caps font-label-caps tracking-widest text-[10px] sm:text-[11px] leading-tight">
+        <span className="hidden xs:inline">Direct from Indian Estates • </span>Free Shipping on Samplers
       </div>
 
-      <div className="h-20 max-w-7xl mx-auto px-gutter flex items-center justify-between gap-space-md">
+      <div className="h-16 sm:h-20 max-w-7xl mx-auto px-3 sm:px-gutter flex items-center justify-between gap-2 sm:gap-space-md">
         {/* Brand Logo */}
         <div
-          className="flex items-center gap-space-sm cursor-pointer select-none"
+          className="flex items-center gap-1.5 sm:gap-space-sm cursor-pointer select-none shrink-0"
           onClick={(e) => handleLinkClick(e, 'home')}
         >
-          <span className="text-secondary text-title-md font-title-md">✦</span>
-          <div className="flex flex-col">
-            <span className="font-headline-sm text-headline-sm tracking-wide text-primary uppercase">Morning Sip</span>
-            <span className="font-label-caps text-label-caps text-secondary -mt-1">Est. 2026 • Artisanal Terroirs</span>
+          <span className="text-secondary text-base sm:text-title-md">✦</span>
+          <div className="flex flex-col justify-center">
+            <span className="font-cape text-base sm:text-xl md:text-headline-sm tracking-wide text-primary uppercase whitespace-nowrap leading-none">
+              Morning Sip
+            </span>
+            <span className="font-mono text-[9px] sm:text-[11px] text-secondary tracking-wider whitespace-nowrap mt-0.5 leading-none">
+              Est. 2026 • Artisanal Terroirs
+            </span>
           </div>
         </div>
 
@@ -74,7 +78,7 @@ export default function Navbar({
         </nav>
 
         {/* Header Right Actions */}
-        <div className="flex items-center gap-space-md">
+        <div className="flex items-center gap-1.5 sm:gap-space-md shrink-0">
           {/* Search Trigger / Input */}
           <div className="relative flex items-center">
             {showSearch ? (

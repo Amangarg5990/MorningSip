@@ -46,7 +46,7 @@ export default function TeaBenefits() {
         {/* Apothecary Stencil Overline in Cape Monospace */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-secondary/10 border border-secondary/35 text-secondary font-mono text-xs sm:text-[13px] tracking-[0.25em] uppercase mb-5 shadow-sm">
           <span className="text-secondary text-xs">✦</span>
-          <span className="font-bold">PHYTO-ALCHEMY // CAMELLIA SINENSIS</span>
+
           <span className="text-secondary text-xs">✦</span>
         </div>
 

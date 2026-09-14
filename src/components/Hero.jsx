@@ -26,16 +26,16 @@ export default function Hero({ onExplore, onWellness }) {
 
       <div className="relative z-10 max-w-7xl mx-auto px-gutter flex flex-col items-center text-center">
         {/* Terroir Monogram & Stamp */}
-        <div className="inline-flex items-center gap-space-xs px-space-md py-1 rounded-full bg-surface-container-lowest/10 backdrop-blur-md text-secondary-fixed mb-space-md shadow-sm border border-secondary/20">
-          <span className="text-secondary text-sm">✦</span>
-          <span className="font-label-caps text-label-caps tracking-widest uppercase text-secondary-fixed">
+        <div className="inline-flex items-center gap-1.5 sm:gap-space-xs px-3 sm:px-space-md py-1 rounded-full bg-surface-container-lowest/10 backdrop-blur-md text-secondary-fixed mb-space-md shadow-sm border border-secondary/20 max-w-[95vw]">
+          <span className="text-secondary text-xs sm:text-sm shrink-0">✦</span>
+          <span className="font-label-caps text-[10px] sm:text-label-caps tracking-wider sm:tracking-widest uppercase text-secondary-fixed whitespace-nowrap overflow-hidden text-ellipsis">
             Master Terroirs of the Subcontinent
           </span>
-          <span className="text-secondary text-sm">✦</span>
+          <span className="text-secondary text-xs sm:text-sm shrink-0">✦</span>
         </div>
 
         {/* Main Headline */}
-        <h1 className="font-display-hero text-headline-lg md:text-display-hero max-w-4xl text-surface-bright tracking-tight mb-space-md">
+        <h1 className="font-display-hero text-2xl sm:text-4xl md:text-display-hero max-w-4xl text-surface-bright tracking-tight mb-space-md leading-tight">
           Pure Terroir. Single Estate Indian Teas Crafted for the Connoisseur.
         </h1>
 

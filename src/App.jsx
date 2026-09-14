@@ -114,7 +114,7 @@ export default function App() {
       />
 
       {/* Main Page Flow Matching the Template */}
-      <main className="w-full pt-28 bg-surface min-h-screen flex-1">
+      <main className="w-full pt-20 sm:pt-28 bg-surface min-h-screen flex-1">
         <div className="flex flex-col w-full">
           {/* Top Estate Ambient Hero */}
           <Hero

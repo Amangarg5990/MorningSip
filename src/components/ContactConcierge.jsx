@@ -61,8 +61,8 @@ export default function ContactConcierge({ onToast }) {
               <div>
                 <div className="font-title-md text-label-md text-primary font-bold">Tasting Rooms &amp; Estate Offices</div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  <strong>Assam Estate:</strong> Moran Terroir Lodge, Dibrugarh Road, Assam 786621<br />
-                  <strong>Executive Atelier:</strong> Diplomatic Enclave, Chanakyapuri, New Delhi 110021
+                  {/* <strong>Assam Estate:</strong> Moran Terroir Lodge, Dibrugarh Road, Assam 786621<br /> */}
+                  <strong>Executive Office:</strong> Meerut, Uttar Pradesh, India
                 </p>
               </div>
             </div>
@@ -74,7 +74,7 @@ export default function ContactConcierge({ onToast }) {
               <div>
                 <div className="font-title-md text-label-md text-primary font-bold">Concierge Line</div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  +91 (0) 373 289 4410 • +91 (0) 11 4982 3000<br />
+                  +91 (0) 9286027428<br />
                   <span className="text-label-sm text-secondary font-semibold">Monday to Saturday, 9:00 AM – 7:00 PM IST</span>
                 </p>
               </div>
@@ -87,7 +87,7 @@ export default function ContactConcierge({ onToast }) {
               <div>
                 <div className="font-title-md text-label-md text-primary font-bold">Direct Terroir Inquiries</div>
                 <p className="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
-                  concierge@morningsip.com • sommelier@morningsip.com
+                  morningsip2026@gmail.com
                 </p>
               </div>
             </div>
@@ -113,9 +113,8 @@ export default function ContactConcierge({ onToast }) {
         <div className="lg:col-span-7 bg-surface p-space-lg md:p-space-xl rounded-2xl shadow-xl flex flex-col justify-between border border-outline-variant/30">
           {!isSubmitted ? (
             <form
-              className={`space-y-space-md transition-opacity duration-300 ${
-                isSubmitting ? 'opacity-50 pointer-events-none' : ''
-              }`}
+              className={`space-y-space-md transition-opacity duration-300 ${isSubmitting ? 'opacity-50 pointer-events-none' : ''
+                }`}
               onSubmit={handleSubmit}
             >
               <div className="grid grid-cols-1 md:grid-cols-2 gap-space-md">
@@ -195,11 +194,10 @@ export default function ContactConcierge({ onToast }) {
                     return (
                       <label
                         key={terroir}
-                        className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer transition-colors border ${
-                          checked
+                        className={`flex items-center gap-2 p-2 rounded-lg cursor-pointer transition-colors border ${checked
                             ? 'bg-surface-container border-secondary/40'
                             : 'bg-surface-container-low border-transparent hover:bg-surface-container'
-                        }`}
+                          }`}
                       >
                         <input
                           type="checkbox"
